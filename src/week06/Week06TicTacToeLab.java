@@ -100,7 +100,9 @@ public class Week06TicTacToeLab {
     // START YOUR IMPLEMENTATION BELOW THIS LINE
 
     public static void main(String[] args) {
-
+      GameBoard gameBoard = new GameBoard();
+      gameBoard.init();
+      gameBoard.display();
             
         
     }
