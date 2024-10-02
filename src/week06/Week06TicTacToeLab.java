@@ -106,7 +106,7 @@ public class Week06TicTacToeLab {
       gameBoard.init();
       gameBoard.display();
             
-      String winner = "";
+      boolean winner = false;
       String player = "X";
       int turnsPlayed = 1;
       int squareNum;
@@ -115,7 +115,7 @@ public class Week06TicTacToeLab {
       System.out.println("Welcome to Tic-Tac-Toe!");
       System.out.println("First turn belongs to " + player);
       
-      while (winner.equals("") && turnsPlayed <= 9) {
+      while (!winner && turnsPlayed <= 9) {
         System.out.println(player + "'s turn. Please enter the square to play an " + player + ".");
         squareNum = input.nextInt();
         input.nextLine();
@@ -131,11 +131,20 @@ public class Week06TicTacToeLab {
             }
             turnsPlayed++;
             gameBoard.display();
+            winner = gameBoard.checkWinStatus(player);
           }
           else {
             System.out.println("Square is taken! Please select another square.");
           }
         }
+      }
+      
+      System.out.println("Game is done!");
+      if (!winner) {
+        System.out.println("It's a draw!");
+      }
+      else {
+        System.out.println(player + " is the winner!");
       }
       
       input.close();

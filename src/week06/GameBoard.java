@@ -26,4 +26,14 @@ public class GameBoard {
     }
     return false;
   }
+  
+  public boolean checkWinStatus(String player){
+    if (this.gameBoard[0].equals(player) && this.gameBoard[1].equals(player) && this.gameBoard[2].equals(player)
+        || this.gameBoard[0].equals(player) && this.gameBoard[3].equals(player) && this.gameBoard[6].equals(player)
+        || this.gameBoard[0].equals(player) && this.gameBoard[4].equals(player) && this.gameBoard[8].equals(player)
+        || this.gameBoard[2].equals(player) && this.gameBoard[4].equals(player) && this.gameBoard[6].equals(player)) {
+      return true;
+    }
+    return false;
+  }
 }
