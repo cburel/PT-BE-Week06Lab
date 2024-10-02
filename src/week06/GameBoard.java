@@ -5,7 +5,7 @@ public class GameBoard {
   
   public void init() {
     for (int i = 1; i < 10; i++) {
-      this.gameBoard[i-1] = String.valueOf(i);
+      this.gameBoard[i-1] = "-";
     }
   }
   
@@ -19,7 +19,11 @@ public class GameBoard {
     System.out.println("+---+---+---+");
   }
   
-  public void checkWinStatus() {
-    
+  public boolean ifValidSquare(int squareNum, String player) {
+    if (this.gameBoard[squareNum - 1].equals("-")) {
+      this.gameBoard[squareNum - 1] = player;
+      return true;
+    }
+    return false;
   }
 }

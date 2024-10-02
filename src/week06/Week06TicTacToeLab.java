@@ -6,6 +6,8 @@
 //
 package week06;
 
+import java.util.Scanner;
+
 public class Week06TicTacToeLab {
 
     // This Lab requires you to program a simple game of Tic Tac Toe
@@ -104,7 +106,40 @@ public class Week06TicTacToeLab {
       gameBoard.init();
       gameBoard.display();
             
+      String winner = "";
+      String player = "X";
+      int turnsPlayed = 1;
+      int squareNum;
+      Scanner input = new Scanner(System.in);
+      
+      System.out.println("Welcome to Tic-Tac-Toe!");
+      System.out.println("First turn belongs to " + player);
+      
+      while (winner.equals("") && turnsPlayed <= 9) {
+        System.out.println(player + "'s turn. Please enter the square to play an " + player + ".");
+        squareNum = input.nextInt();
+        input.nextLine();
         
+        
+        if (squareNum > 0 && squareNum <= 9) {
+          if (gameBoard.ifValidSquare(squareNum, player)) {
+            if (player.equals("X")) {
+              player = "O";
+            }
+            else {
+              player = "X";
+            }
+            turnsPlayed++;
+            gameBoard.display();
+          }
+          else {
+            System.out.println("Square is taken! Please select another square.");
+          }
+        }
+      }
+      
+      input.close();
+      
     }
 
 }
